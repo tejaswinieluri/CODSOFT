@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Student Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="dashboard">
+<div class="sidebar">
+<h2>🤖 Assistant</h2>
+<button onclick="quickAsk('ai')">AI</button>
+<button onclick="quickAsk('python')">Python</button>
+<button onclick="quickAsk('full stack')">Full Stack</button>
+<button onclick="quickAsk('dsa')">DSA</button>
+<button onclick="quickAsk('gate')">GATE</button>
+<button onclick="quickAsk('resume')">Resume</button>
+<button onclick="quickAsk('placement')">Placement</button>
+<button onclick="quickAsk('internship')">Internship</button>
+<button onclick="quickAsk('docker')">Docker</button>
+<button onclick="quickAsk('aws')">AWS</button>
+<hr>
+<button onclick="toggleTheme()">🌙 Theme</button>
+<button onclick="exportChat()">📥 Export</button>
+<a href="/logout"><button>Logout</button></a>
+</div>
+
+<div class="main-content">
+
+<div class="cards">
+<div class="card">👤 {{ username }}</div>
+<div class="card">📅 {{ date }}</div>
+<div class="card">⏰ {{ time }}</div>
+<div class="card">❓ <span id="count">0</span></div>
+</div>
+
+<div class="tip-box">
+💡 Today's Tip:<br>
+{{ tip }}
+</div>
+
+<div id="chat-box">
+<div class="bot-message">
+Hello {{ username }} 👋<br>
+Ask me about AI, Programming, GATE, DSA, Resume and Careers.
+</div>
+</div>
+
+<div class="chat-controls">
+<input type="text" id="user-input" placeholder="Ask me anything...">
+<button onclick="sendMessage()">Send</button>
+<button onclick="startVoice()">🎤</button>
+<button onclick="clearChat()">🗑️ Clear</button>
+</div>
+
+<div class="faq">
+<h3>FAQ</h3>
+<button onclick="quickAsk('What is AI')">What is AI?</button>
+<button onclick="quickAsk('Python')">What is Python?</button>
+<button onclick="quickAsk('Resume')">Resume Tips</button>
+<button onclick="quickAsk('Study Plan')">Study Plan</button>
+<button onclick="quickAsk('Placement')">Placement Tips</button>
+</div>
+
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
